@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Brand } from 'src/app/models/brand/brand';
+import { BrandService } from 'src/app/services/brand/brand.service';
 
 @Component({
   selector: 'app-brand',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./brand.component.css'],
 })
 export class BrandComponent implements OnInit {
-  brand1 = { brandId: 1, brandName: 'BMW' };
-  brand2 = { brandId: 2, brandName: 'Audi' };
-  brands = [this.brand1, this.brand2];
-  constructor() {}
+  brands: Brand[] = [];
 
-  ngOnInit(): void {}
+  constructor(private brandService: BrandService) {}
+
+  ngOnInit(): void {
+    this.getBrands();
+  }
+
+  getBrands() {
+    this.brandService.getBrands().subscribe((response) => {
+      this.brands = response.data;
+    });
+  }
 }
