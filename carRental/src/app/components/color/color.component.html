@@ -2,12 +2,10 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Id</th>
-        <th>Renk</th>
+        <th>Renkler</th>
       </tr>
     </thead>
-    <tr *ngFor="let color of colors">
-      <td>{{ color.colorId }}</td>
+    <tr *ngFor="let color of colors" style="background-color: #bfaea8">
       <td>{{ color.colorName }}</td>
     </tr>
   </table>

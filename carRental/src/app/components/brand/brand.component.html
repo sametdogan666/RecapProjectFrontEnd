@@ -2,12 +2,10 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Id</th>
-        <th>Marka</th>
+        <th>Araç Markaları</th>
       </tr>
     </thead>
-    <tr *ngFor="let brand of brands">
-      <td>{{ brand.brandId }}</td>
+    <tr *ngFor="let brand of brands" style="background-color: #bfaea8">
       <td>{{ brand.brandName }}</td>
     </tr>
   </table>
