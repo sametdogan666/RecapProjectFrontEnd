@@ -1,12 +1,9 @@
-<div class="rounded-0 mt-4">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Renkler</th>
-      </tr>
-    </thead>
-    <tr *ngFor="let color of colors" style="background-color: #bfaea8">
-      <td>{{ color.colorName }}</td>
-    </tr>
-  </table>
-</div>
+<ul class="list-group">
+  <li class="list-group-item" id="listHead">RENKLER</li>
+  <li (click)="setCurrentColor(color)" routerLink="cars/color/{{color.colorId}}" [class]="getCurrentColorClass(color)"
+    *ngFor="let color of colors">
+    {{ color.colorName }}
+  </li>
+</ul>
+
+<h5 *ngIf="currentColor">{{ currentColor.colorName }} seçtiniz.</h5>

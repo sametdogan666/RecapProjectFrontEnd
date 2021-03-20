@@ -1,11 +1,9 @@
-th {
-  background-color: #593E34;
-}
-
-tr {
+#listHead {
+  background-color: #19456b;
   color: #fff;
 }
 
-td {
-  color: #000;
+li {
+  background-color: #11698e;
+  color: #fff;
 }

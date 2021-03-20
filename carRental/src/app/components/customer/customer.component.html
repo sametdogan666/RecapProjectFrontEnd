@@ -1,12 +1,12 @@
-<div class="rounded-0 mt-4">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Şirketler</th>
-      </tr>
-    </thead>
-    <tr *ngFor="let customer of customers" style="background-color: #bfaea8">
-      <td>{{ customer.companyName }}</td>
-    </tr>
-  </table>
-</div>
+<ul class="list-group">
+  <li class="list-group-item" id="listHead">FİRMALAR</li>
+  <li class="list-group-item">Tüm Firmalar</li>
+  <li
+    (click)="setCurrentCustomer(customer)"
+    [class]="getCurrentCustomerClass(customer)"
+    *ngFor="let customer of customers"
+  >
+    {{ customer.companyName }}
+  </li>
+</ul>
+<h5 *ngIf="currentCustomer">{{ currentCustomer.companyName }} seçtiniz.</h5>

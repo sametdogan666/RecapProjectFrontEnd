@@ -9,6 +9,7 @@ import { CustomerService } from 'src/app/services/customer/customer.service';
 })
 export class CustomerComponent implements OnInit {
   customers: CustomerDto[] = [];
+  currentCustomer: CustomerDto;
   constructor(private customerServise: CustomerService) {}
 
   ngOnInit(): void {
@@ -19,5 +20,15 @@ export class CustomerComponent implements OnInit {
     this.customerServise.getCustomers().subscribe((response) => {
       this.customers = response.data;
     });
+  }
+  setCurrentCustomer(customer: CustomerDto) {
+    this.currentCustomer = customer;
+  }
+  getCurrentCustomerClass(customer: CustomerDto) {
+    if (customer == this.currentCustomer) {
+      return 'list-group-item active';
+    } else {
+      return 'list-group-item';
+    }
   }
 }
